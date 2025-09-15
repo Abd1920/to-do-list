@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>To-Do List</h1>
-        <form id="task-form">
-            <input type="text" id="task-input" placeholder="Add a new task" required>
-            <input type="time" id="task-time" required>
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="task-list"></ul>
+        <h1>✨ Smart To-Do List</h1>
+
+        <div class="form-container">
+            <form id="task-form">
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="text" id="task-input" placeholder="What needs to be done?" required>
+                        <div class="error-message">Please enter a task</div>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="time" id="task-time" required>
+                        <div class="error-message">Please select a time</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>+</span> Add Task
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="stats">
+            <span>Total: <strong id="total-tasks">0</strong></span>
+            <span>Completed: <strong id="completed-tasks">0</strong></span>
+            <span>Pending: <strong id="pending-tasks">0</strong></span>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Tasks</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn" data-filter="today">Today</button>
+        </div>
+
+        <ul id="task-list" class="task-list">
+            <div class="empty-state">
+                <p>📝 No tasks yet. Add one above to get started!</p>
+            </div>
+        </ul>
     </div>
+    
     <script src="scripts.js"></script>
 </body>
+
 </html>
